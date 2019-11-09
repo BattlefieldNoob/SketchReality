@@ -358,3 +358,8 @@ flutter-plugins
 **/UnityExport
 *.zip
 .flutter-plugins
+ios/Flutter
+Podfile.lock
+gradlew*
+ServiceDefinitions.json
+ios/.symlinks
