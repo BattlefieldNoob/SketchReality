@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_unity_widget_example/src/models/RunConfig.dart';
 import 'package:googleapis/poly/v1.dart';
 import 'package:path_provider/path_provider.dart';
-import '../../blocs/poly_screen_bloc.dart';
+import '../../blocs/Screen_bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as path;
-
 
 class PolyHomeScreen extends StatefulWidget {
   @override
@@ -15,23 +15,22 @@ class PolyHomeScreen extends StatefulWidget {
 }
 
 class _PolyHomeScreenState extends State<PolyHomeScreen> {
-
   String dataDirectory;
 
   @override
   void initState() {
     super.initState();
     bloc.init();
-    FlutterDownloader.initialize().whenComplete((){
+    FlutterDownloader.initialize().whenComplete(() {
       FlutterDownloader.registerCallback(downloadCallback);
     });
 
-    getExternalStorageDirectory().then((directory){
-      dataDirectory=directory.path;
+    getExternalStorageDirectory().then((directory) {
+      dataDirectory = directory.path;
     });
   }
 
-  static void downloadCallback(id,status,progress){
+  static void downloadCallback(id, status, progress) {
     print("id:$id progress:$progress");
     print("id:$id status:$status");
   }
@@ -76,7 +75,7 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
                         return ListView.builder(
                             itemCount: snapshot.data.length,
                             itemBuilder: (context, index) {
-                              return listItem(snapshot.data[index],context);
+                              return listItem(snapshot.data[index], context);
                             });
                       } else {
                         return Center(
@@ -115,9 +114,14 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
         children: <Widget>[
           GestureDetector(
             onTap: () {
+              if (!currentConfig.unityActive) {
+                debugPrint("unity is not active");
+                return;
+              }
+
               debugPrint('ontap:${result.name}');
               //debugPrint("passing argument:${result.urls}");
-              Navigator.pushNamed(context, "/unity",arguments: result);
+              Navigator.pushNamed(context, "/unity", arguments: result);
               /*var format=result.formats.firstWhere((f)=>f.formatType.contains("GLTF2"));
               debugPrint('format:${format.root.url}');
               var saveFolder=result.name.replaceFirst("assets/", "");
@@ -135,38 +139,49 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
               });*/
             },
             child: Container(
-              child: Image.network(result.thumbnail.url),
+              child: result.thumbnail.url != null
+                  ? Image.network(result.thumbnail.url)
+                  : Image.asset("assets/placeholder.png"),
             ),
           ),
           SizedBox(height: 20.0),
-          Row(
-            children: <Widget>[
-              Text(result.displayName, style: Theme.of(context).textTheme.display2),
-              GestureDetector(
-                onTap: (){
+          Row(children: <Widget>[
+            Text(result.displayName,
+                style: Theme.of(context).textTheme.display2),
+            GestureDetector(
+                onTap: () {
+                  if (!currentConfig.isOnline) {
+                    debugPrint("Cannot Download on offline build");
+                    return;
+                  }
+
                   debugPrint('ontap:${result.name}');
                   //debugPrint("passing argument:${result.urls}");
                   //Navigator.pushNamed(context, "/unity");
-                  var format=result.formats.firstWhere((f)=>f.formatType.contains("GLTF2"));
+                  var format = result.formats
+                      .firstWhere((f) => f.formatType.contains("GLTF2"));
                   debugPrint('format:${format.root.url}');
-                  var saveFolder=result.name.replaceFirst("assets/", "");
+                  var saveFolder = result.name.replaceFirst("assets/", "");
                   debugPrint('folder:${saveFolder}');
 
-                  var fullSavePath=path.join(dataDirectory,saveFolder);
-                  var dir=Directory(fullSavePath);
-                  if(!dir.existsSync())
-                    dir.createSync();
+                  var fullSavePath = path.join(dataDirectory, saveFolder);
+                  var dir = Directory(fullSavePath);
+                  if (!dir.existsSync()) dir.createSync();
 
-                  FlutterDownloader.enqueue(url: format.root.url, savedDir: fullSavePath, fileName: format.root.relativePath);
-                  format.resources.forEach((f){
+                  FlutterDownloader.enqueue(
+                      url: format.root.url,
+                      savedDir: fullSavePath,
+                      fileName: format.root.relativePath);
+                  format.resources.forEach((f) {
                     debugPrint("${f.relativePath}");
-                    FlutterDownloader.enqueue(url: f.url, savedDir: fullSavePath, fileName: f.relativePath);
+                    FlutterDownloader.enqueue(
+                        url: f.url,
+                        savedDir: fullSavePath,
+                        fileName: f.relativePath);
                   });
                 },
-                child:Icon(Icons.file_download)
-              )
-            ]
-          ),
+                child: Icon(Icons.file_download))
+          ]),
         ],
       ),
     );

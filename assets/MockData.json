@@ -1,0 +1,1500 @@
+{
+    "assets": [
+        {
+            "name": "assets/f0_m8hH9BI9",
+            "displayName": "Horse",
+            "authorName": "Poly by Google",
+            "description": "#equestrian #pony #bridle",
+            "createTime": "2017-10-10T23:34:58.289045Z",
+            "updateTime": "2019-10-20T21:04:45.826636Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Horse.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/atNF-WVR1uU/Horse.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Horse.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/atNF-WVR1uU/Horse.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Horse_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/atNF-WVR1uU/Horse_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1272"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Horse.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/fi_vARX2PXF/Horse.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Horse.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/fi_vARX2PXF/Horse.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Horse_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571605485826636/f0_m8hH9BI9/fi_vARX2PXF/Horse_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1272"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#a5d6a7"
+            }
+        },
+        {
+            "name": "assets/d8_84tSnTgc",
+            "displayName": "pony",
+            "authorName": "Альбина Еременко",
+            "createTime": "2018-01-07T10:49:58.567911Z",
+            "updateTime": "2019-11-07T11:01:06.469627Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "twilight.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "twilight_horn.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_horn.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_tail.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_tail.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "twilight_body.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_body.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_eyes.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_eyes.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_hair_back.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_hair_back.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_hair_front.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/8HoqrNwvKdC/twilight_hair_front.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "37452"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "twilight.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "twilight.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "twilight_body.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_body.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_tail.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_tail.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_horn.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_horn.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_hair_back.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_hair_back.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_eyes.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_eyes.png",
+                            "contentType": "image/png"
+                        },
+                        {
+                            "relativePath": "twilight_hair_front.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124466469627/d8_84tSnTgc/0iGbEc-EqI_/twilight_hair_front.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "37452"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "aGPhu6edGsJ.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#f06292"
+            }
+        },
+        {
+            "name": "assets/0fVRHo65E-j",
+            "displayName": "Unicorn",
+            "authorName": "Poly by Google",
+            "description": "#horse",
+            "createTime": "2017-09-20T22:48:38.370375Z",
+            "updateTime": "2019-11-08T21:10:58.340009Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Unicorn_01.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573247458340009/0fVRHo65E-j/6AOwulPXtT1/Unicorn_01.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Unicorn_01.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573247458340009/0fVRHo65E-j/6AOwulPXtT1/Unicorn_01.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "958"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Unicorn_01.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573247458340009/0fVRHo65E-j/3FcP67Xsa_S/Unicorn_01.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Unicorn_01.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573247458340009/0fVRHo65E-j/3FcP67Xsa_S/Unicorn_01.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "958"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "0fVRHo65E-j.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#c2185b"
+            }
+        },
+        {
+            "name": "assets/212RNECqFCA",
+            "displayName": "Unicorn",
+            "authorName": "Poly by Google",
+            "description": "#majestic #magical #fairytale #rare #mystical",
+            "createTime": "2017-09-27T20:46:41.897186Z",
+            "updateTime": "2019-10-06T09:37:55.571630Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Mesh_Unicorn.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/5iX387Ps1kk/Mesh_Unicorn.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Unicorn.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/5iX387Ps1kk/Mesh_Unicorn.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Tex_Unicorn.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/5iX387Ps1kk/Tex_Unicorn.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "926"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Mesh_Unicorn.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/2CPJMNMgj9p/Mesh_Unicorn.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Unicorn.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/2CPJMNMgj9p/Mesh_Unicorn.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Tex_Unicorn.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1570354675571630/212RNECqFCA/2CPJMNMgj9p/Tex_Unicorn.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "926"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#9c27b0"
+            }
+        },
+        {
+            "name": "assets/cuUeGYY_jQ_",
+            "displayName": "Fox",
+            "authorName": "Poly by Google",
+            "description": "#fox #canine #dog",
+            "createTime": "2017-09-28T19:05:55.732254Z",
+            "updateTime": "2019-11-09T10:58:41.269878Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Mesh_Fox.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/8PXBBa5tM3p/Mesh_Fox.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Fox.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/8PXBBa5tM3p/Mesh_Fox.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Tex_Fox.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/8PXBBa5tM3p/Tex_Fox.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "564"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Mesh_Fox.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/7xBD54u9pkt/Mesh_Fox.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Fox.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/7xBD54u9pkt/Mesh_Fox.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Tex_Fox.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297121269878/cuUeGYY_jQ_/7xBD54u9pkt/Tex_Fox.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "564"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#ff8a65"
+            }
+        },
+        {
+            "name": "assets/dSMm_V4sKNr",
+            "displayName": "Saddle",
+            "authorName": "Poly by Google",
+            "description": "#horseback #horse #equestrian #riding",
+            "createTime": "2017-10-22T02:00:41.509069Z",
+            "updateTime": "2019-11-06T11:03:00.073851Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Saddle.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/86P3UF1iIOv/Saddle.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Saddle.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/86P3UF1iIOv/Saddle.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Saddle_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/86P3UF1iIOv/Saddle_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1378"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Saddle.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/8AkMCIuhu4d/Saddle.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Saddle.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/8AkMCIuhu4d/Saddle.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Saddle_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573038180073851/dSMm_V4sKNr/8AkMCIuhu4d/Saddle_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1378"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#cddc39"
+            }
+        },
+        {
+            "name": "assets/5ocnVSh_ZF-",
+            "displayName": "Horse",
+            "authorName": "Poly by Google",
+            "description": "#equine #equestrian #mammal #stallion  #mustang",
+            "createTime": "2017-10-11T01:20:41.950349Z",
+            "updateTime": "2019-11-09T10:42:44.515342Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "WildHorse.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/2vZVvNr_VPk/WildHorse.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "WildHorse.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/2vZVvNr_VPk/WildHorse.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "WildHorse_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/2vZVvNr_VPk/WildHorse_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1106"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "WildHorse.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/cwYSbHch842/WildHorse.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "WildHorse.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/cwYSbHch842/WildHorse.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "WildHorse_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573296164515342/5ocnVSh_ZF-/cwYSbHch842/WildHorse_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1106"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#eeeeee"
+            }
+        },
+        {
+            "name": "assets/d4bayjeM1aD",
+            "displayName": "Mechanical Horse",
+            "authorName": "jake young",
+            "description": "#BotsWithBlocks",
+            "createTime": "2017-08-19T22:55:18.186717Z",
+            "updateTime": "2019-09-08T01:06:52.112919Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/cuGVMTgkbf4/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/cuGVMTgkbf4/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "63724"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/cksgtd64aQ9/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/cksgtd64aQ9/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "63724"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/1US-DLO8Y_f/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1567904812112919/d4bayjeM1aD/1US-DLO8Y_f/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "63724"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "d4bayjeM1aD.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#283593"
+            },
+            "remixInfo": {
+                "sourceAsset": [
+                    "assets/9L2Lt-sxzdp"
+                ]
+            }
+        },
+        {
+            "name": "assets/cKi5RxMBUxO",
+            "displayName": "Zebra",
+            "authorName": "Poly by Google",
+            "description": "#horse #stripes #Africa #savannah",
+            "createTime": "2017-10-11T01:31:47.964532Z",
+            "updateTime": "2019-11-08T11:01:18.564956Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Zebra_01.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573210878564956/cKi5RxMBUxO/6AFFcuqCiSe/Zebra_01.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Zebra_01.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573210878564956/cKi5RxMBUxO/6AFFcuqCiSe/Zebra_01.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1578"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Zebra_01.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573210878564956/cKi5RxMBUxO/d5CFTNaewrj/Zebra_01.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Zebra_01.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573210878564956/cKi5RxMBUxO/d5CFTNaewrj/Zebra_01.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1578"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "cKi5RxMBUxO.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#795548"
+            }
+        },
+        {
+            "name": "assets/51WUJKGFW93",
+            "displayName": "Fox",
+            "authorName": "Poly by Google",
+            "description": "#mammal #predator #vulpus #forest #woodland\n",
+            "createTime": "2017-10-23T01:16:57.349700Z",
+            "updateTime": "2019-11-08T10:34:21.921639Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "NOVELO_FOX.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573209261921639/51WUJKGFW93/3lIbwSaenfX/NOVELO_FOX.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "NOVELO_FOX.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573209261921639/51WUJKGFW93/3lIbwSaenfX/NOVELO_FOX.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1239"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "NOVELO_FOX.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573209261921639/51WUJKGFW93/92-Fd9vQTii/NOVELO_FOX.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "NOVELO_FOX.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573209261921639/51WUJKGFW93/92-Fd9vQTii/NOVELO_FOX.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "1239"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "51WUJKGFW93.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#9c27b0"
+            }
+        },
+        {
+            "name": "assets/3yjAme78x2f",
+            "displayName": "Monsters' Bar",
+            "authorName": "Ian MacGillivray",
+            "description": "The gang's all here!\n\n#MonsterBlocks",
+            "createTime": "2017-08-30T15:01:52.293735Z",
+            "updateTime": "2019-10-26T09:38:59.791245Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/5N2E7JcYsUb/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/5N2E7JcYsUb/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30202"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/d67o_X6Anuq/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/d67o_X6Anuq/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30202"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/1wr3YI-D9Ea/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1572082739791245/3yjAme78x2f/1wr3YI-D9Ea/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30202"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "3yjAme78x2f.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#8bc34a"
+            },
+            "remixInfo": {
+                "sourceAsset": [
+                    "assets/aN9tmDVHKkH",
+                    "assets/05jPj316n46",
+                    "assets/8gVr4pedhp9",
+                    "assets/2PnDPAvZYTa"
+                ]
+            }
+        },
+        {
+            "name": "assets/bmfQ1j9CeO2",
+            "displayName": "Gorilla",
+            "authorName": "Poly by Google",
+            "description": "#monkey #primate #wildlife #jungle",
+            "createTime": "2017-09-27T20:42:54.711484Z",
+            "updateTime": "2019-11-07T11:00:40.130368Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Mesh_Gorilla.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/5BQ63y5-KYp/Mesh_Gorilla.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Gorilla.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/5BQ63y5-KYp/Mesh_Gorilla.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Tex_Gorilla.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/5BQ63y5-KYp/Tex_Gorilla.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "576"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Mesh_Gorilla.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/fS0YCwPUeI_/Mesh_Gorilla.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Mesh_Gorilla.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/fS0YCwPUeI_/Mesh_Gorilla.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Tex_Gorilla.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573124440130368/bmfQ1j9CeO2/fS0YCwPUeI_/Tex_Gorilla.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "576"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#7e57c2"
+            }
+        },
+        {
+            "name": "assets/6IL8FMcduiE",
+            "displayName": "Minotour_Test001",
+            "authorName": "Marr Chal",
+            "description": "Model : 3dsMax \nPolygon : ~ 4310 Polygon \nTexture : Handpaint Photoshop CS Texture Size : 1x512x512 pixel 72 dpi",
+            "createTime": "2017-11-03T08:04:45.076875Z",
+            "updateTime": "2019-11-06T10:37:42.884054Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "minotour001.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/1i9qgH24d_g/minotour001.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "mino01.jpg",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/1i9qgH24d_g/mino01.jpg",
+                            "contentType": "image/jpeg"
+                        },
+                        {
+                            "relativePath": "minotour001.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/1i9qgH24d_g/minotour001.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "4302"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "minotour001.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/68dUahQGzBF/minotour001.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "minotour001.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/68dUahQGzBF/minotour001.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "mino01.jpg",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036662884054/6IL8FMcduiE/68dUahQGzBF/mino01.jpg",
+                            "contentType": "image/jpeg"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "4302"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "6IL8FMcduiE.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#000000"
+            }
+        },
+        {
+            "name": "assets/1dWAYYfUAhn",
+            "displayName": "fox",
+            "authorName": "chun WU",
+            "createTime": "2019-07-18T12:10:47.068697Z",
+            "updateTime": "2019-10-20T17:46:16.206163Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/7YsGYdI-ni-/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/7YsGYdI-ni-/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "2296"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/3L4Abl-6jqq/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/3L4Abl-6jqq/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "3873"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.fbx",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/aNUObQUgsN5/model.fbx",
+                        "contentType": "application/octet-stream"
+                    },
+                    "formatComplexity": {},
+                    "formatType": "FBX"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/3MEx9PZHD_W/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1571593576206163/1dWAYYfUAhn/3MEx9PZHD_W/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "3873"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#607d8b"
+            }
+        },
+        {
+            "name": "assets/45wMLZn4kj1",
+            "displayName": "Wolf",
+            "authorName": "Poly by Google",
+            "description": "#dog",
+            "createTime": "2017-09-14T21:56:56.660593Z",
+            "updateTime": "2019-11-06T10:41:27.581341Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "PUSHILIN_wolf.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/db-Wg5OmJ_G/PUSHILIN_wolf.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "PUSHILIN_wolf.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/db-Wg5OmJ_G/PUSHILIN_wolf.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "PUSHILIN_wolf.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/db-Wg5OmJ_G/PUSHILIN_wolf.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "320"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "PUSHILIN_wolf.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/3Nmjabju1Ic/PUSHILIN_wolf.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "PUSHILIN_wolf.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/3Nmjabju1Ic/PUSHILIN_wolf.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "PUSHILIN_wolf.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573036887581341/45wMLZn4kj1/3Nmjabju1Ic/PUSHILIN_wolf.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "320"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#37474f"
+            }
+        },
+        {
+            "name": "assets/dv8Isf3WRlE",
+            "displayName": "Donkey",
+            "authorName": "Poly by Google",
+            "createTime": "2017-09-25T21:45:32.438311Z",
+            "updateTime": "2019-11-09T11:02:59.428779Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "Donkey.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/6ZSIqVcVOTM/Donkey.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Donkey.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/6ZSIqVcVOTM/Donkey.mtl",
+                            "contentType": "text/plain"
+                        },
+                        {
+                            "relativePath": "Donkey_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/6ZSIqVcVOTM/Donkey_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "990"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "Donkey.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/3teht2qZ1sp/Donkey.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "Donkey.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/3teht2qZ1sp/Donkey.bin",
+                            "contentType": "application/octet-stream"
+                        },
+                        {
+                            "relativePath": "Donkey_BaseColor.png",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297379428779/dv8Isf3WRlE/3teht2qZ1sp/Donkey_BaseColor.png",
+                            "contentType": "image/png"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "990"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "thumbnail.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#dce775"
+            }
+        },
+        {
+            "name": "assets/4b43aCLSGku",
+            "displayName": "Glurak and Grill",
+            "authorName": "Jakob Hippe",
+            "createTime": "2017-11-15T21:43:07.408362Z",
+            "updateTime": "2019-11-07T10:40:34.143350Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/eGwGiP2ukbb/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/eGwGiP2ukbb/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "3713"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.fbx",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/dR11UnXgM_C/model.fbx",
+                        "contentType": "application/octet-stream"
+                    },
+                    "formatComplexity": {},
+                    "formatType": "FBX"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/5zwcD7Uil4n/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/5zwcD7Uil4n/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "5476"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/0izSofLWycX/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573123234143350/4b43aCLSGku/0izSofLWycX/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "5476"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "4b43aCLSGku.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#03a9f4"
+            }
+        },
+        {
+            "name": "assets/1l7swaPrFcx",
+            "displayName": "Botdog",
+            "authorName": "Nikki Morin",
+            "description": "bark bark beep beep #BotsWithBlocks",
+            "createTime": "2017-08-17T14:15:51.626906Z",
+            "updateTime": "2019-08-13T18:51:32.433408Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/86hhXLBGdHY/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/86hhXLBGdHY/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30088"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/7gnu_cxGf6q/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/7gnu_cxGf6q/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30088"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/7aBQKpVDCsT/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565722292433408/1l7swaPrFcx/7aBQKpVDCsT/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "30088"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "1l7swaPrFcx.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#263238"
+            },
+            "remixInfo": {
+                "sourceAsset": [
+                    "assets/9L2Lt-sxzdp"
+                ]
+            }
+        },
+        {
+            "name": "assets/6ybhT9b43Ys",
+            "displayName": "Monsterolophus",
+            "authorName": "Hoai Nguyen",
+            "description": "#MonsterBlocks #DinoBlocks\n\nParasaurolophus dinosaur model made with the monster kit.",
+            "createTime": "2017-08-29T13:53:01.162942Z",
+            "updateTime": "2019-08-13T20:58:00.516197Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "model.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/0swbkbRI9dG/model.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "materials.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/0swbkbRI9dG/materials.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "10586"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/ebSk8w7I1lr/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/ebSk8w7I1lr/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "10586"
+                    },
+                    "formatType": "GLTF"
+                },
+                {
+                    "root": {
+                        "relativePath": "model.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/41R2fRFIk38/model.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "model.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1565729880516197/6ybhT9b43Ys/41R2fRFIk38/model.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "10586"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "6ybhT9b43Ys.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#4caf50"
+            },
+            "remixInfo": {
+                "sourceAsset": [
+                    "assets/8gVr4pedhp9"
+                ]
+            }
+        },
+        {
+            "name": "assets/fkK7TgvkSVG",
+            "displayName": "Seahorse",
+            "authorName": "Poly by Google",
+            "description": "#marine #ocean #coralreefs",
+            "createTime": "2017-10-21T03:24:54.018153Z",
+            "updateTime": "2019-11-09T11:07:39.799307Z",
+            "formats": [
+                {
+                    "root": {
+                        "relativePath": "NOVELO_SEAHORSE.obj",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297659799307/fkK7TgvkSVG/dyJ8-XWmTt7/NOVELO_SEAHORSE.obj",
+                        "contentType": "text/plain"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "NOVELO_SEAHORSE.mtl",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297659799307/fkK7TgvkSVG/dyJ8-XWmTt7/NOVELO_SEAHORSE.mtl",
+                            "contentType": "text/plain"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "956"
+                    },
+                    "formatType": "OBJ"
+                },
+                {
+                    "root": {
+                        "relativePath": "NOVELO_SEAHORSE.gltf",
+                        "url": "https://poly.googleapis.com/downloads/fp/1573297659799307/fkK7TgvkSVG/dZJkzwicDIy/NOVELO_SEAHORSE.gltf",
+                        "contentType": "model/gltf+json"
+                    },
+                    "resources": [
+                        {
+                            "relativePath": "NOVELO_SEAHORSE.bin",
+                            "url": "https://poly.googleapis.com/downloads/fp/1573297659799307/fkK7TgvkSVG/dZJkzwicDIy/NOVELO_SEAHORSE.bin",
+                            "contentType": "application/octet-stream"
+                        }
+                    ],
+                    "formatComplexity": {
+                        "triangleCount": "956"
+                    },
+                    "formatType": "GLTF2"
+                }
+            ],
+            "thumbnail": {
+                "relativePath": "fkK7TgvkSVG.png",
+                "contentType": "image/png"
+            },
+            "license": "CREATIVE_COMMONS_BY",
+            "visibility": "PUBLIC",
+            "isCurated": true,
+            "presentationParams": {
+                "orientingRotation": {
+                    "w": 1
+                },
+                "colorSpace": "LINEAR",
+                "backgroundColor": "#ff8a65"
+            }
+        }
+    ],
+    "nextPageToken": "CiH6MP__Hr31-b6MjJqLjO3w9fLV9JmUtMirmImUrKm4__4QFCEDWc_7WxOaqjEY1FdrdPD7XDGXKJVi4Ul0XzlC4QAAzwAAAFAAWgsJLAF6xZUUDmMQA2DI2IbdAQ==",
+    "totalSize": 180
+}
