@@ -6,26 +6,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_unity_widget_example/src/repositories/BaseRepository.dart';
 import 'package:googleapis/poly/v1.dart';
 
-class MockCompanion implements RepositoryCompanion{
+class MockAssetsCompanion implements RepositoryCompanion{
 
-  const MockCompanion();
+  const MockAssetsCompanion();
 
   @override
-  MockRepository create() {
+  MockAssetsRepository create() {
     debugPrint("Create called!");
-    return MockRepository.protected();
+    return MockAssetsRepository.protected();
   }
 }
 
-class MockRepository implements BaseRepository{
+class MockAssetsRepository implements BaseRepository<ListAssetsResponse>{
 
   static ListAssetsResponse instance;
 
-  MockRepository.protected();
+  MockAssetsRepository.protected();
 
-  factory MockRepository.getRepo() {
-    debugPrint("Poly Get Repo!");
-    return BaseRepository.getRepo<MockRepository>();
+  factory MockAssetsRepository.getRepo() {
+    debugPrint("Mock Poly Get Repo!");
+    return BaseRepository.getRepo<MockAssetsRepository>();
   }
 
   static Future<ListAssetsResponse> createFromJsonFile(String jsonFileToRead) async {
@@ -39,7 +39,9 @@ class MockRepository implements BaseRepository{
 
 
   @override
-  Future<ListAssetsResponse> getDataByQuery(query) =>
-      createFromJsonFile("assets/MockData.json");
+  Future<ListAssetsResponse> getDataByQuery(query) {
+    print("Data Requested!");
+    return createFromJsonFile("assets/MockData.json");
+  }
 
 }

@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_unity_widget_example/src/repositories/MockRepository.dart';
-import 'package:flutter_unity_widget_example/src/repositories/Polyrepository.dart';
-import 'package:googleapis/poly/v1.dart';
+import 'package:flutter_unity_widget_example/src/repositories/MockAssetsRepository.dart';
+import 'package:flutter_unity_widget_example/src/repositories/PolyRepository.dart';
 
 
 class RepositoryCompanion{
@@ -11,11 +10,11 @@ class RepositoryCompanion{
   BaseRepository create()=> throw "NO";
 }
 
-abstract class BaseRepository{
+abstract class BaseRepository<T>{
 
   static const Map<Type,RepositoryCompanion> _companion={
     PolyRepository: const PolyCompanion(),
-    MockRepository: const MockCompanion(),
+    MockAssetsRepository: const MockAssetsCompanion(),
   };
 
   static RepositoryCompanion companion<X extends BaseRepository>()=>_companion[X];
@@ -32,5 +31,5 @@ abstract class BaseRepository{
     return _repository;
   }
 
-  Future<ListAssetsResponse> getDataByQuery(query);
+  Future<T> getDataByQuery(query);
 }
