@@ -25,9 +25,15 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
       FlutterDownloader.registerCallback(downloadCallback);
     });
 
-    getExternalStorageDirectory().then((directory) {
-      dataDirectory = directory.path;
-    });
+    if (Platform.isAndroid) {
+      getExternalStorageDirectory().then((directory) {
+        dataDirectory = directory.path;
+      });
+    } else {
+      getApplicationDocumentsDirectory().then((directory) {
+        dataDirectory = directory.path;
+      });
+    }
   }
 
   static void downloadCallback(id, status, progress) {
