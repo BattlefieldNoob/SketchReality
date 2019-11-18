@@ -8,7 +8,7 @@ import 'package:flutter_unity_widget_example/src/ui/homescreen/Home_screen.dart'
 void main() {
   RunConfig()
     ..isOnline = false
-    ..unityActive = false;
+    ..unityActive = true;
 
   runApp(MaterialApp(
     title: "cavallo",

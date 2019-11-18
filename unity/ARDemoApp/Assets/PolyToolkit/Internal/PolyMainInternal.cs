@@ -423,7 +423,11 @@ namespace PolyToolkitInternal {
       // Indicates how many files are pending download (1 for main file + 1 for each resource).
       state.totalFiles = state.pendingFiles = 1 + packageToFetch.resources.Count;
 
+#if UNITY_EDITOR
+      var mainPath = $"{Application.streamingAssetsPath}/{asset.name.Replace("assets/","")}";
+#else
       var mainPath = $"{Application.persistentDataPath}/{asset.name.Replace("assets/","")}";
+#endif
       Debug.Log("MAIN ASSET PATH:"+mainPath);
 
       var resourcesPath = packageToFetch.resources.Select(file => $"{mainPath}/{file.relativePath}");

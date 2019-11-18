@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\anton\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\anton\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ARDemoApp.1538816425.00" t="ExcludeRecursive" />
+    <e p="C:\Users\anton\Documents\UnityProjects\ARDemoApp\ARDemoApp" t="IncludeRecursive">
       <e p="ARDemoApp.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CartoonManager.cs" t="Include" />
+        <e p="CameraControl.cs" t="Include" />
         <e p="DemoScript" t="Include">
           <e p="EventManager.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
@@ -182,9 +184,7 @@
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_ARDemoApp.1943816647.00" t="ExcludeRecursive" />
   </component>
 </project>

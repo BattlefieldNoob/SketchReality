@@ -22,6 +22,8 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
 
   bool searchInProgress = false;
 
+  bool isDownloaded=true;
+
   @override
   void initState() {
     super.initState();
@@ -69,14 +71,12 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
   }
 
   void onAssetClick(Asset asset) {
-    if (!currentConfig.isOnline) {
-      debugPrint("Cannot Download on offline build");
-      return;
-    }
-
-    var isDownloaded = false;
 
     if (!isDownloaded) {
+      if (!currentConfig.isOnline) {
+        debugPrint("Cannot Download on offline build");
+        return;
+      }
       //DOWNLOAD CODE!!!
       debugPrint('ontap:${asset.name}');
       //debugPrint("passing argument:${result.urls}");
@@ -92,6 +92,7 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
       if (!dir.existsSync()) dir.createSync();
 
       downloadBloc.startDownload(asset.name, format, fullSavePath);
+      isDownloaded=true;
     } else {
       //OPEN UNITY CODE!
       if (!currentConfig.unityActive) {

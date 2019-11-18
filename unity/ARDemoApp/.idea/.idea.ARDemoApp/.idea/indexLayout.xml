@@ -13,8 +13,10 @@
       <Path>Library/PackageCache/com.unity.purchasing@2.0.6</Path>
       <Path>Library/PackageCache/com.unity.subsystemregistration@1.0.5</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.2</Path>
+      <Path>Library/PackageCache/com.unity.test-framework@1.1.3</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.2</Path>
+      <Path>Library/PackageCache/com.unity.timeline@1.2.6</Path>
       <Path>Library/PackageCache/com.unity.xr.arcore@3.0.0-preview.3</Path>
       <Path>Library/PackageCache/com.unity.xr.arfoundation@3.0.0-preview.3</Path>
       <Path>Library/PackageCache/com.unity.xr.arkit-face-tracking@3.0.0-preview.3</Path>
@@ -31,6 +33,8 @@
       <Path>.vs</Path>
       <Path>Builds</Path>
       <Path>Library</Path>
+      <Path>Logs</Path>
+      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

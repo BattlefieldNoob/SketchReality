@@ -78,6 +78,8 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
   void onUnityCreated(controller) {
     this._unityWidgetController = controller;
 
+    print("UNITY CREATED!");
+
     var binfile=File();
     binfile.url="BoxTextured0.bin";
     binfile.relativePath="BoxTextured0.bin";

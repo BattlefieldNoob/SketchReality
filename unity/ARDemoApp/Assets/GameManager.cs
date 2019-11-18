@@ -6,51 +6,105 @@ using Newtonsoft.Json;
 using PolyToolkit;
 using PolyToolkitInternal;
 using UnityEngine;
+using UnityEngine.SpatialTracking;
+using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 
 public class GameManager : MonoBehaviour
 {
-    private ARRaycastManager _raycastManager;
+    private ARSession _session;
     private ARCameraManager _cameraManager;
     //public GameObject Prefab;
+#if !UNITY_EDITOR
+    private ARRaycastManager _raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+#endif
 
     private PolyMainInternal _importer;
-    
 
-    public static string imageUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/The_ROCK.jpg/170px-The_ROCK.jpg";
-
+    private PolyAsset _assetToLoad;
 
     private void Awake()
     {
-        UnityMessageManager.Instance.OnFlutterMessage+=OnFlutterMessage;
+        UnityMessageManager.Instance.OnFlutterMessage += OnFlutterMessage;
+        _session = FindObjectOfType<ARSession>();
+        _session.enabled = false;
     }
 
-    void Start()
+    IEnumerator Start()
     {
+#if !UNITY_EDITOR
         _raycastManager = GetComponent<ARRaycastManager>();
+#endif
         _cameraManager = GetComponentInChildren<ARCameraManager>();
-        
 
-        /*var asset = new PolyAsset()
+        yield return ARSession.CheckAvailability();
+
+        Debug.Log(ARSession.state);
+        switch (ARSession.state)
         {
-            name = "BoxTextured.gltf",
-            formats =
+            case ARSessionState.Unsupported:
+            case ARSessionState.NeedsInstall:
+                InitializeWithoutAR();
+                break;
+            default:
+                InitializeWithAR();
+                break;
+        }
+    }
+
+    private void InitializeWithAR()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InitializeWithoutAR()
+    {
+        var background = _cameraManager.GetComponent<ARCameraBackground>();
+        background.enabled = false;
+        var trackedPose = _cameraManager.GetComponent<TrackedPoseDriver>();
+        trackedPose.enabled = false;
+        var camera = _cameraManager.GetComponent<Camera>();
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = Color.gray;
+        var cameraControl = camera.GetComponent<CameraControl>();
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (_assetToLoad == null)
+        {
+            var asset = new PolyAsset()
             {
-                new PolyFormat
+                name = "assets/EditorTest",
+                formats =
                 {
-                    formatComplexity = new PolyFormatComplexity(), formatType = PolyFormatType.GLTF_2,
-                    root = new PolyFile("cavallo", "cavallo", null), resources =
+                    new PolyFormat
                     {
-                        new PolyFile("BoxTextured0.bin","BoxTextured0.bin",null),
-                        new PolyFile("CesiumLogoFlat.png","CesiumLogoFlat.png",null),
+                        formatComplexity = new PolyFormatComplexity(), formatType = PolyFormatType.GLTF2,
+                        root = new PolyFile("BoxTextured.gltf", "BoxTextured.gltf", null), resources =
+                        {
+                            new PolyFile("BoxTextured0.bin", "BoxTextured0.bin", null),
+                            new PolyFile("CesiumLogoFlat.png", "CesiumLogoFlat.png", null),
+                        }
                     }
                 }
-            }
-        };*/
+            };
+            OnFlutterMessage(new MessageHandler(0, "", "PolyAsset", JsonConvert.SerializeObject(asset)));
+        }
+#endif
 
-
+        if (_assetToLoad != null)
+        {
+            Debug.Log("name:" + _assetToLoad.name);
+            Debug.Log(_assetToLoad.ToString());
+            PolyMainInternal.Instance.ImportFromLocal(_assetToLoad, new PolyImportOptions() {scaleFactor = 1},
+                (loadedasset, result) =>
+                {
+                    if (result.Ok)
+                    {
+                        cameraControl.enabled = true;
+                    }
+                });
+        }
     }
 
     private void OnFlutterMessage(MessageHandler handler)
@@ -61,45 +115,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("IS POLY ASSET!");
             var data = handler.getData<String>();
             Debug.Log(data);
-            var polyAsset = JsonConvert.DeserializeObject<PolyAsset>(data);
-            Debug.Log("name:"+polyAsset.name);
-            Debug.Log(polyAsset.ToString());
-            PolyMainInternal.Instance.ImportFromLocal(polyAsset, new PolyImportOptions() {scaleFactor = 1}, PolyImportCallback);
+            _assetToLoad = JsonConvert.DeserializeObject<PolyAsset>(data);
         }
-    }
-
-    private void PolyImportCallback(PolyAsset asset, PolyStatusOr<PolyImportResult> result)
-    {
-        if (result.Ok)
-        {
-            Debug.Log("Import Completed!");
-        }
-        else
-        {
-            Debug.LogError(result.Status.errorMessage);
-        }
-    }
-
-
-    public void SetURL(string url)
-    {
-        imageUrl = url;
-    }
-
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        /*if (hasFocus)
-        {
-            AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"); 
- 
-            AndroidJavaObject currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
- 
-            AndroidJavaObject intent = currentActivity.Call<AndroidJavaObject>("getIntent");
-                  
-            String text = intent.Call<String> ("getStringExtra", "URL");
-        
-            imageUrl = text;
-        }*/
     }
 
     void Update()
@@ -113,7 +130,7 @@ public class GameManager : MonoBehaviour
             var direction = Quaternion.LookRotation(spawnPoint - cameraHeight0Pos);
             var asset = new PolyAsset()
             {
-                name = "BoxTextured.gltf",
+                name = "assets/EditorTest",
                 formats =
                 {
                     new PolyFormat
@@ -121,17 +138,17 @@ public class GameManager : MonoBehaviour
                         formatComplexity = new PolyFormatComplexity(), formatType = PolyFormatType.GLTF2,
                         root = new PolyFile("BoxTextured.gltf", "BoxTextured.gltf", null), resources =
                         {
-                            new PolyFile("BoxTextured0.bin","BoxTextured0.bin",null),
-                            new PolyFile("CesiumLogoFlat.png","CesiumLogoFlat.png",null),
+                            new PolyFile("BoxTextured0.bin", "BoxTextured0.bin", null),
+                            new PolyFile("CesiumLogoFlat.png", "CesiumLogoFlat.png", null),
                         }
                     }
                 }
             };
-            OnFlutterMessage(new MessageHandler(0,"","PolyAsset",JsonConvert.SerializeObject(asset)));
+            OnFlutterMessage(new MessageHandler(0, "", "PolyAsset", JsonConvert.SerializeObject(asset)));
             //Instantiate(Prefab, spawnPoint, direction);
         }
 #else
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        /*if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (_raycastManager.Raycast(Input.GetTouch(0).position,hits))
             {
@@ -141,7 +158,7 @@ public class GameManager : MonoBehaviour
                 var direction = Quaternion.LookRotation(spawnPoint - cameraHeight0Pos);
                 //Instantiate(Prefab, spawnPoint, direction);
             }
-        }
+        }*/
 #endif
     }
 }
