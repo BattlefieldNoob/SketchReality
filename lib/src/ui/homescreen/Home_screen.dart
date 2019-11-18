@@ -22,7 +22,7 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
 
   bool searchInProgress = false;
 
-  bool isDownloaded=true;
+  bool isDownloaded=false;
 
   @override
   void initState() {
