@@ -1,12 +1,4 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_unity_widget_example/src/repositories/BaseRepository.dart';
-import 'package:googleapis/poly/v1.dart';
-
-class MockDownloadsCompanion implements RepositoryCompanion {
+/*class MockDownloadsCompanion implements RepositoryCompanion {
   const MockDownloadsCompanion();
 
   @override
@@ -17,27 +9,27 @@ class MockDownloadsCompanion implements RepositoryCompanion {
 }
 
 class DownloadStateList {
-  List<DownloadState> downloads;
+  List<MockDownloadState> downloads;
 
   DownloadStateList.fromJson(Map _json) {
     if (_json.containsKey("downloads")) {
       downloads = (_json["downloads"] as List)
-          .map<DownloadState>((value) => DownloadState.fromJson(value))
+          .map<MockDownloadState>((value) => MockDownloadState.fromJson(value))
           .toList();
     }
   }
 }
 
-class DownloadState {
+class MockDownloadState {
   String name;
   bool completed;
   bool error;
   double progress;
 
-  DownloadState._private(
+  MockDownloadState._private(
       {this.name, this.completed, this.error, this.progress});
 
-  DownloadState.fromJson(Map _json) {
+  MockDownloadState.fromJson(Map _json) {
     if (_json.containsKey("name")) {
       name = _json["name"] as String;
     }
@@ -52,19 +44,18 @@ class DownloadState {
     }
   }
 
-  factory DownloadState.completed(String name) =>
-      DownloadState._private(name: name, completed: true, progress: 1);
+  factory MockDownloadState.completed(String name) =>
+      MockDownloadState._private(name: name, completed: true, progress: 1);
 
-  factory DownloadState.withProgress(String name, double progress) =>
-      DownloadState._private(name: name, progress: progress);
+  factory MockDownloadState.withProgress(String name, double progress) =>
+      MockDownloadState._private(name: name, progress: progress);
 
-  factory DownloadState.error(String name) =>
-      DownloadState._private(name: name, error: true);
+  factory MockDownloadState.error(String name) =>
+      MockDownloadState._private(name: name, error: true);
 }
 
-class MockDownloadsRepository implements BaseRepository<DownloadState> {
-
-  static Map<String, DownloadState> instance;
+class MockDownloadsRepository implements BaseRepository<MockDownloadState> {
+  static Map<String, MockDownloadState> instance;
 
   MockDownloadsRepository.protected();
 
@@ -73,32 +64,32 @@ class MockDownloadsRepository implements BaseRepository<DownloadState> {
     return BaseRepository.getRepo<MockDownloadsRepository>();
   }
 
-  static Future<DownloadState> createFromJsonFile(
-      String jsonFileToRead,String query) async {
+  static Future<MockDownloadState> createFromJsonFile(
+      String jsonFileToRead, String query) async {
     if (instance == null) {
       var fileString = await rootBundle.loadString(jsonFileToRead);
       var _json = jsonDecode(fileString);
       var downloadList = DownloadStateList.fromJson(_json);
-      instance=downloadList.downloads.asMap().map<String, DownloadState>((int, value) =>
-          MapEntry(value.name, value));
+      instance = downloadList.downloads.asMap().map<String, MockDownloadState>(
+          (int, value) => MapEntry(value.name, value));
     }
 
-    if(instance.containsKey(query))
+    if (instance.containsKey(query))
       return instance[query];
     else
       return null;
   }
 
-  setData(DownloadState state){
-    if(instance.containsKey(state.name))
-      instance[state.name]=state;
+  setData(MockDownloadState state) {
+    if (instance.containsKey(state.name))
+      instance[state.name] = state;
     else
-      instance.putIfAbsent(state.name, ()=>state);
+      instance.putIfAbsent(state.name, () => state);
   }
 
   @override
-  Future<DownloadState> getDataByQuery(query) {
+  Future<MockDownloadState> getDataByQuery(query) {
     print("Download Requested!");
-    return createFromJsonFile("assets/MockData.json",query);
+    return createFromJsonFile("assets/MockData.json", query);
   }
-}
+}*/

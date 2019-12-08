@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_unity_widget_example/src/repositories/BaseRepository.dart';
 import 'package:googleapis/poly/v1.dart';
 
-class MockAssetsCompanion implements RepositoryCompanion{
-
+class MockAssetsCompanion implements RepositoryCompanion {
   const MockAssetsCompanion();
 
   @override
@@ -17,8 +16,7 @@ class MockAssetsCompanion implements RepositoryCompanion{
   }
 }
 
-class MockAssetsRepository implements BaseRepository<ListAssetsResponse>{
-
+class MockAssetsRepository implements BaseRepository<ListAssetsResponse> {
   static ListAssetsResponse instance;
 
   MockAssetsRepository.protected();
@@ -28,20 +26,22 @@ class MockAssetsRepository implements BaseRepository<ListAssetsResponse>{
     return BaseRepository.getRepo<MockAssetsRepository>();
   }
 
-  static Future<ListAssetsResponse> createFromJsonFile(String jsonFileToRead) async {
-    if(instance==null) {
+  static Future<ListAssetsResponse> createFromJsonFile(
+      String jsonFileToRead) async {
+    if (instance == null) {
       var fileString = await rootBundle.loadString(jsonFileToRead);
       var _json = jsonDecode(fileString);
       instance = ListAssetsResponse.fromJson(_json);
+    } else {
+      //simulo l'attesa dovuta alla rete
+      await Future.delayed(Duration(milliseconds: 500));
     }
     return instance;
   }
-
 
   @override
   Future<ListAssetsResponse> getDataByQuery(query) {
     print("Data Requested!");
     return createFromJsonFile("assets/MockData.json");
   }
-
 }

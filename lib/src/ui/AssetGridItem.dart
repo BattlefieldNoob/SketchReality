@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_unity_widget_example/src/models/RunConfig.dart';
-import 'package:flutter_unity_widget_example/src/repositories/MockDownloadsRepository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/events/check_download_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/poly_downloads_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/states/download_pending_state.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/states/download_progress_state.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/states/download_state.dart';
 import 'package:flutter_unity_widget_example/src/ui/Animation/FadeSlideTransition.dart';
 import 'package:googleapis/poly/v1.dart';
 import 'package:rxdart/rxdart.dart';
@@ -14,29 +18,20 @@ class AssetGridItem extends StatefulWidget {
   final GestureAssetTapCallback onTap;
   final Observable<DownloadState> stream;
 
-  const AssetGridItem(this._asset, this.stream, {this.onTap});
+  const AssetGridItem(this._asset, {this.stream, this.onTap});
 
   @override
   State<StatefulWidget> createState() => AssetGridState();
 }
 
 class AssetGridState extends State<AssetGridItem> {
-  double downloadProgress;
+  PolyDownloadsBloc _polyDownloadsBloc;
 
   @override
   void initState() {
     super.initState();
-    downloadProgress=0.1;
-    widget.stream
-        .listen((data) {
-          print("_______________________________________________________StreamData:"+data.name);
-          print("_______________________________________________________MY NAME:"+widget._asset.name);
-      if(data.name == widget._asset.name) {
-        print("${data.name} progress:${data.progress}");
-        setState(() => {downloadProgress = data.progress});
-      }
-    });
-    setState(() => {downloadProgress = 0});
+    _polyDownloadsBloc = BlocProvider.of<PolyDownloadsBloc>(context);
+    _polyDownloadsBloc.add(CheckDownloadEvent(asset: widget._asset));
   }
 
   Widget loadingBuilder(
@@ -92,12 +87,34 @@ class AssetGridState extends State<AssetGridItem> {
                         child: Transform(
                             transform: Matrix4.identity()..scale(-1.0),
                             alignment: FractionalOffset.center,
-                            child: LinearProgressIndicator(
-                              backgroundColor: Colors.transparent,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                  Color.fromARGB(92, 0, 0, 0)),
-                              value: downloadProgress,
-                            )))
+                            child:
+                                BlocBuilder<PolyDownloadsBloc, DownloadState>(
+                                    condition: (prevState, state) {
+                              return state.asset == widget._asset;
+                            }, builder: (context, state) {
+                              if (state is DownloadProgressState) {
+                                return LinearProgressIndicator(
+                                  backgroundColor: Colors.transparent,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color.fromARGB(92, 0, 0, 0)),
+                                  value: 1 - state.progress,
+                                );
+                              } else if (state is DownloadPendingState) {
+                                return LinearProgressIndicator(
+                                  backgroundColor: Colors.transparent,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color.fromARGB(92, 0, 0, 0)),
+                                  //value: state.progress,
+                                );
+                              } else {
+                                return LinearProgressIndicator(
+                                  backgroundColor: Colors.transparent,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color.fromARGB(92, 0, 0, 0)),
+                                  value: 0,
+                                );
+                              }
+                            })))
                   ])
                 ]))));
   }

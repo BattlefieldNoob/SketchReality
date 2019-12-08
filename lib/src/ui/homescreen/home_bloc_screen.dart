@@ -2,33 +2,48 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_unity_widget_example/src/blocs/Downloads_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/events/start_download_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/poly_downloads_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/events/empty_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/events/update_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/events/valid_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
 import 'package:flutter_unity_widget_example/src/models/RunConfig.dart';
-import 'package:flutter_unity_widget_example/src/ui/AssetGridItem.dart';
 import 'package:googleapis/poly/v1.dart';
-import 'package:path_provider/path_provider.dart';
-import '../../blocs/Screen_bloc.dart';
-
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:rxdart/rxdart.dart';
 
-class PolyHomeScreen extends StatefulWidget {
+import '../poly_assets_grid.dart';
+
+class PolyBlocHomeScreen extends StatefulWidget {
   @override
-  _PolyHomeScreenState createState() => _PolyHomeScreenState();
+  _PolyBlocHomeScreenState createState() => _PolyBlocHomeScreenState();
 }
 
-class _PolyHomeScreenState extends State<PolyHomeScreen> {
+class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   String dataDirectory;
 
   bool searchInProgress = false;
 
-  bool isDownloaded=false;
+  bool isDownloaded = false;
+
+  PolyBloc _polyBloc;
+
+  PolyDownloadsBloc _polyDownloadsBloc;
+
+  static Subject<String> querySubject = PublishSubject();
+
+  Observable<String> queryStream =
+      querySubject.debounceTime(Duration(milliseconds: 150)).distinct();
+
+  Observable<String> debouncedQueryStream =
+      querySubject.debounceTime(Duration(milliseconds: 800)).distinct();
 
   @override
   void initState() {
     super.initState();
-    bloc.init();
-    downloadBloc.init();
 
     if (Platform.isAndroid) {
       getExternalStorageDirectory().then((directory) {
@@ -40,38 +55,39 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
       });
     }
 
-    /* bloc.query.debounceTime(Duration(microseconds: 600100)).listen((l) {
-      if (l.isEmpty) {
-        //if (searchInProgress)
-          /*setState(() {
-            searchInProgress = false;
-          });*/
+    _polyBloc = BlocProvider.of<PolyBloc>(context);
+    _polyBloc.add(EmptyQuerySearchEvent());
+
+    _polyDownloadsBloc = BlocProvider.of<PolyDownloadsBloc>(context);
+
+    debouncedQueryStream.listen((query) {
+      if (query.isEmpty || query.length <= 3) {
+        print("empty query");
+        _polyBloc.add(EmptyQuerySearchEvent());
       } else {
-        /*if (!searchInProgress) {
-          print("DATA REQUESTED");
-          setState(() {
-            searchInProgress = true;
-          });
-        }*/
+        print("valid query:" + query);
+        _polyBloc.add(ValidQuerySearchEvent(query: query));
       }
     });
 
-    bloc.assetList.listen((p) {
-      print("DATA IS READY");
-      setState(() {
-        searchInProgress = false;
-      });
-    });*/
+    queryStream.listen((query) async {
+      if (query.isEmpty || query.length <= 3) {
+        print("empty query");
+        _polyBloc.add(EmptyQuerySearchEvent());
+      } else {
+        print("updated query:" + query);
+        _polyBloc.add(UpdateQuerySearchEvent());
+      }
+    });
   }
 
   @override
   void dispose() {
-    bloc.dispose();
+    querySubject.close();
     super.dispose();
   }
 
   void onAssetClick(Asset asset) {
-
     if (!isDownloaded) {
       if (!currentConfig.isOnline) {
         debugPrint("Cannot Download on offline build");
@@ -91,8 +107,10 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
       var dir = Directory(fullSavePath);
       if (!dir.existsSync()) dir.createSync();
 
-      downloadBloc.startDownload(asset.name, format, fullSavePath);
-      isDownloaded=true;
+      //downloadBloc.startDownload(asset.name, format, fullSavePath);
+      _polyDownloadsBloc
+          .add(StartDownloadEvent(asset: asset, saveDir: dataDirectory));
+      //isDownloaded = true;
     } else {
       //OPEN UNITY CODE!
       if (!currentConfig.unityActive) {
@@ -150,54 +168,13 @@ class _PolyHomeScreenState extends State<PolyHomeScreen> {
                         ])),
                     onChanged: (value) {
                       print("query:$value!");
-                      bloc.changeQuery(value);
+                      querySubject.add(value);
+                      //bloc.changeQuery(value);
                     },
                   ),
                 ),
               ),
-              Expanded(
-                flex: 6,
-                child: StreamBuilder(
-                    stream: bloc.assetList,
-                    builder: (context, AsyncSnapshot<List<Asset>> snapshot) {
-                      if (snapshot.hasData) {
-                        return OrientationBuilder(
-                            builder: (context, orientation) {
-                          return GridView.builder(
-                              itemCount: snapshot.data.length,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount:
-                                          orientation == Orientation.landscape
-                                              ? 4
-                                              : 2,
-                                      childAspectRatio:
-                                          orientation == Orientation.landscape
-                                              ? 0.98
-                                              : 1.1),
-                              itemBuilder: (context, index) {
-                                return AssetGridItem(snapshot.data[index],
-                                    downloadBloc.downloadsEventStream,
-                                    onTap: onAssetClick);
-                              });
-                        });
-                      } else {
-                        return Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              SizedBox(height: 20.0),
-                              Flexible(
-                                  child: Text(
-                                'Type a word',
-                                style: Theme.of(context).textTheme.display1,
-                              ))
-                            ],
-                          ),
-                        );
-                      }
-                    }),
-              ),
+              Expanded(flex: 6, child: PolyAssetsGrid(onTap: onAssetClick)),
             ],
           ),
         ),
