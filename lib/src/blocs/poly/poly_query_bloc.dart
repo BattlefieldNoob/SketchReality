@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_unity_widget_example/src/repositories/BaseRepository.dart';
+import 'package:flutter_unity_widget_example/src/repositories/base_repository.dart';
 import 'package:googleapis/poly/v1.dart';
 
 import 'events/search_event.dart';

@@ -6,15 +6,15 @@ import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_lo
 import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_loading_state.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_state.dart';
 
-import 'AssetGridItem.dart';
+import 'asset_grid_item.dart';
 
 class PolyAssetsGrid extends StatelessWidget {
-  const PolyAssetsGrid({
-    Key key,
-    @required this.onTap,
-  }) : super(key: key);
+  const PolyAssetsGrid(
+      {Key key, @required this.onTap, @required this.onDeleteTap})
+      : super(key: key);
 
   final GestureAssetTapCallback onTap;
+  final GestureAssetTapCallback onDeleteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +54,7 @@ class PolyAssetsGrid extends StatelessWidget {
                     orientation == Orientation.landscape ? 0.98 : 1.1),
             itemBuilder: (context, index) {
               return AssetGridItem(state.assetList.assets[index],
-                  //downloadBloc.downloadsEventStream,
-                  onTap: onTap);
+                  onTap: onTap, onDeleteTap: onDeleteTap);
             });
       } else {
         return Center(

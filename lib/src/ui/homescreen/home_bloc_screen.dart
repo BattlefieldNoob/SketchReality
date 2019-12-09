@@ -1,18 +1,15 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/download/events/delete_download_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/download/events/start_download_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/download/poly_downloads_bloc.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/empty_query_search_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/update_query_search_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/valid_query_search_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
-import 'package:flutter_unity_widget_example/src/models/RunConfig.dart';
+import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:googleapis/poly/v1.dart';
-import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../poly_assets_grid.dart';
@@ -23,8 +20,6 @@ class PolyBlocHomeScreen extends StatefulWidget {
 }
 
 class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
-  String dataDirectory;
-
   bool searchInProgress = false;
 
   bool isDownloaded = false;
@@ -44,16 +39,6 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   @override
   void initState() {
     super.initState();
-
-    if (Platform.isAndroid) {
-      getExternalStorageDirectory().then((directory) {
-        dataDirectory = directory.path;
-      });
-    } else {
-      getApplicationDocumentsDirectory().then((directory) {
-        dataDirectory = directory.path;
-      });
-    }
 
     _polyBloc = BlocProvider.of<PolyBloc>(context);
     _polyBloc.add(EmptyQuerySearchEvent());
@@ -87,6 +72,10 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
     super.dispose();
   }
 
+  void onDeleteAssetClick(Asset asset) {
+    _polyDownloadsBloc.add(DeleteDownloadEvent(asset));
+  }
+
   void onAssetClick(Asset asset) {
     if (!isDownloaded) {
       if (!currentConfig.isOnline) {
@@ -97,19 +86,8 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       debugPrint('ontap:${asset.name}');
       //debugPrint("passing argument:${result.urls}");
       //Navigator.pushNamed(context, "/unity");
-      var format =
-          asset.formats.firstWhere((f) => f.formatType.contains("GLTF2"));
-      debugPrint('format:${format.root.url}');
-      var saveFolder = asset.name.replaceFirst("assets/", "");
-      debugPrint('folder:${saveFolder}');
-
-      var fullSavePath = path.join(dataDirectory, saveFolder);
-      var dir = Directory(fullSavePath);
-      if (!dir.existsSync()) dir.createSync();
-
       //downloadBloc.startDownload(asset.name, format, fullSavePath);
-      _polyDownloadsBloc
-          .add(StartDownloadEvent(asset: asset, saveDir: dataDirectory));
+      _polyDownloadsBloc.add(StartDownloadEvent(asset: asset));
       //isDownloaded = true;
     } else {
       //OPEN UNITY CODE!
@@ -121,22 +99,6 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       debugPrint('ontap:${asset.name}');
       //debugPrint("passing argument:${result.urls}");
       Navigator.pushNamed(context, "/unity", arguments: asset);
-      /*var format=result.formats.firstWhere((f)=>f.formatType.contains("GLTF2"));
-              debugPrint('format:${format.root.url}');
-              var saveFolder=result.name.replaceFirst("assets/", "");
-              debugPrint('folder:${saveFolder}');
-
-              var fullSavePath=path.join(dataDirectory,saveFolder);
-              var dir=Directory(fullSavePath);
-              if(!dir.existsSync())
-                dir.createSync();
-
-              FlutterDownloader.enqueue(url: format.root.url, savedDir: fullSavePath, fileName: path.basename(format.root.relativePath));
-              format.resources.forEach((f){
-                debugPrint("${result.displayName}${path.extension(f.relativePath)}");
-                FlutterDownloader.enqueue(url: f.url, savedDir: fullSavePath, fileName: path.basename(f.relativePath));
-              });*/
-
     }
   }
 
@@ -174,7 +136,12 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
                   ),
                 ),
               ),
-              Expanded(flex: 6, child: PolyAssetsGrid(onTap: onAssetClick)),
+              Expanded(
+                  flex: 6,
+                  child: PolyAssetsGrid(
+                    onTap: onAssetClick,
+                    onDeleteTap: onDeleteAssetClick,
+                  )),
             ],
           ),
         ),

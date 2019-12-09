@@ -1,33 +1,23 @@
 {
   "downloads": [
     {
-      "name": "assets/f0_m8hH9BI9",
-      "completed": true,
-      "error": false,
+      "asset": "assets/f0_m8hH9BI9",
       "progress": 1.0
     },
     {
-      "name": "assets/d8_84tSnTgc",
-      "completed": false,
-      "error": false,
-      "progress": 0
+      "asset": "assets/d8_84tSnTgc",
+      "progress": 0.0
     },
     {
-      "name": "assets/0fVRHo65E-j",
-      "completed": false,
-      "error": true,
-      "progress": 0
+      "asset": "assets/0fVRHo65E-j",
+      "progress": 0.0
     },
     {
-      "name": "assets/212RNECqFCA",
-      "completed": false,
-      "error": false,
-      "progress": 0
+      "asset": "assets/212RNECqFCA",
+      "progress": 0.0
     },
     {
-      "name": "assets/cuUeGYY_jQ_",
-      "completed": true,
-      "error": false,
+      "asset": "assets/cuUeGYY_jQ_",
       "progress": 1.0
     }
   ]

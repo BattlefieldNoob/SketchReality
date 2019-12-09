@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_unity_widget_example/src/repositories/BaseRepository.dart';
+import 'package:flutter_unity_widget_example/src/repositories/base_repository.dart';
 import 'package:googleapis/poly/v1.dart';
 import 'package:googleapis_auth/auth_io.dart';
 
