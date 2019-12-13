@@ -17,6 +17,13 @@ steps:
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Copy-Item "android\build.gradle.template" -Destination "android\UnityExport\build.gradle"
 - task: FlutterInstall@0
   inputs:
     channel: 'beta'
