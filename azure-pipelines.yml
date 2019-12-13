@@ -9,6 +9,14 @@ trigger:
 pool: 'unity'
 
 steps:
+
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'Android'
+    unityProjectPath: 'unity/ARDemoApp'
+    buildScriptType: 'existing'
+    outputFileName: 'drop'
+    scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
 - task: FlutterInstall@0
   inputs:
     channel: 'beta'
