@@ -22,7 +22,6 @@ steps:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
-      
       Copy-Item "android\build.gradle.template" -Destination "android\UnityExport\build.gradle"
 - task: FlutterInstall@0
   inputs:
@@ -34,3 +33,9 @@ steps:
     target: 'apk'
     projectDirectory: '.'
     debugMode: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'build/app/outputs/apk/app.apk'
+    ArtifactName: 'Release'
+    publishLocation: 'Container'
