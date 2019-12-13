@@ -363,3 +363,4 @@ Podfile.lock
 gradlew*
 ServiceDefinitions.json
 ios/.symlinks
+unity/ARDemoApp/Temp/

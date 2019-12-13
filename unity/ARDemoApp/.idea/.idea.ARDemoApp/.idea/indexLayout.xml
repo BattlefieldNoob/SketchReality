@@ -9,6 +9,7 @@
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.0</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.2</Path>
+      <Path>Library/PackageCache/com.unity.ide.vscode@1.1.3</Path>
       <Path>Library/PackageCache/com.unity.multiplayer-hlapi@1.0.4</Path>
       <Path>Library/PackageCache/com.unity.purchasing@2.0.6</Path>
       <Path>Library/PackageCache/com.unity.subsystemregistration@1.0.5</Path>
@@ -34,7 +35,6 @@
       <Path>Builds</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
