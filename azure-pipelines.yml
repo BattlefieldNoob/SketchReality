@@ -10,46 +10,123 @@ pool:
     vmImage: 'macOS-latest'
 
 steps:
-
-- task: PowerShell@2
+- task: CmdLine@2
+  displayName: u3d Install
   inputs:
-    targetType: 'inline'
-    script: 'Install-Module -Name UnitySetup -AllowPrerelease'
+    script: |
+      gem install u3d
+      export LC_ALL=en_US.UTF-8
+      export LANG=en_US.UTF-8
 
+#il nome è necessario per poter ottenere la variabile nel task successivo
 - task: UnityGetProjectVersionTask@1
-
-- task: PowerShell@2
+  name: unitygetprojectversion
+  displayName: "Get Project Version"
   inputs:
-    targetType: 'inline'
-    script: 'Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version ''$(projectVersion)'' -Components Android) -Verbose'
+    unityProjectPath: 'unity/ARDemoApp'
 
+- task: CmdLine@2
+  displayName: Init u3d
+  inputs:
+    script: 'u3d available -p'
+  condition: ne(variables.isCacheHit, 'true')
+
+- task: CmdLine@2
+  displayName: "Install Unity with components"
+  inputs:
+    script: 'sudo u3d install $(unitygetprojectversion.projectversion) -p Unity,Ios,Android,Android-sdk-ndk-tools,Android-ndk,Android-sdk-platform-tools,Android-open-jdk,Android-sdk-build-tools'
+  condition: ne(variables.isCacheHit, 'true')
+
+- task: CmdLine@2
+  displayName: Move Unity into correct folder
+  inputs:
+    script: |
+     mkdir -p /Applications/Unity/Hub/Editor
+     mv /Applications/Unity_$(unitygetprojectversion.projectversion) /Applications/Unity/Hub/Editor/$(unitygetprojectversion.projectversion)
+     sudo chown -R runner /Applications/Unity/Hub/Editor/$(unitygetprojectversion.projectversion)
+  condition: ne(variables.isCacheHit, 'true')
+  
+- task: UnityActivateLicenseTask@1
+  displayName: Activate License
+  inputs:
+    username: 'antonio.ruggiero@uqido.com'
+    password: '726915Casa'
+    serial: 'SC-7ASB-CF6F-WDNK-NCK3-CQSF'
+    unityEditorsPathMode: 'unityHub'
+    unityProjectPath: 'unity/ARDemoApp'
+
+
+- task: Cache@2
+  inputs:
+    key: 'unity | PolyAR | Android'
+    path: 'unity/ARDemoApp/Library'
 
 - task: UnityBuildTask@3
+  displayName: Unity build Android
   inputs:
     buildTarget: 'Android'
     unityProjectPath: 'unity/ARDemoApp'
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
+    
+- task: UnityBuildTask@3
+  displayName: Unity build iOS
+  inputs:
+    buildTarget: 'Ios'
+    unityProjectPath: 'unity/ARDemoApp'
+    buildScriptType: 'existing'
+    outputFileName: 'drop'
+    scriptExecuteMethod: 'AzureDevOps.PerformIOSBuild'
+
 - task: PowerShell@2
+  displayName: Copy template build gradle for android
   inputs:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
       Copy-Item "android\build.gradle.template" -Destination "android\UnityExport\build.gradle"
 - task: FlutterInstall@0
+  displayName: Install flutter
   inputs:
     channel: 'beta'
     version: 'latest'
 
 - task: FlutterBuild@0
+  displayName: Build flutter android
   inputs:
     target: 'apk'
     projectDirectory: '.'
     debugMode: true
 
+- task: FlutterBuild@0
+  displayName: Build flutter ios
+  inputs:
+    target: 'ios'
+    projectDirectory: '.'
+    debugMode: true
+    iosCodesign: false
+
+- task: CmdLine@2
+  displayName: Creating ipa
+  inputs:
+    script: |
+      mkdir -p Payload
+      mv Runner.app Payload/Runner.app
+      zip -qr app_ios.ipa Payload
+    workingDirectory: 'build/ios/iphoneos'
+
 - task: PublishBuildArtifacts@1
+  displayName: Publish Android
   inputs:
     PathtoPublish: 'build/app/outputs/apk/app.apk'
     ArtifactName: 'Release'
     publishLocation: 'Container'
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish IOS
+  inputs:
+    PathtoPublish: 'build/ios/iphoneos/app_ios.ipa'
+    ArtifactName: 'Release'
+    publishLocation: 'Container'
+
