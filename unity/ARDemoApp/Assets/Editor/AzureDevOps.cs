@@ -9,4 +9,11 @@ public class AzureDevOps
         Build.DoBuildAndroidLibrary();
         EditorApplication.Exit(0);
     }
+
+    [MenuItem("Flutter/IOS from Azure")]
+        public static void PerformIOSBuild()
+        {
+            Build.DoBuildIOS();
+            EditorApplication.Exit(0);
+        }
 }
