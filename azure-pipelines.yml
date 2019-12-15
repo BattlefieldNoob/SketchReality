@@ -4,10 +4,10 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- macos-vm-image
 
 pool:
-    vmImage: "macOS-latest"
+    vmImage: 'macOS-latest'
 
 steps:
 
@@ -17,7 +17,6 @@ steps:
     script: 'Install-Module -Name UnitySetup -AllowPrerelease'
 
 - task: UnityGetProjectVersionTask@1
-  inputs:
 
 - task: PowerShell@2
   inputs:
