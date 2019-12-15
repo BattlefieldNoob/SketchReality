@@ -6,9 +6,24 @@
 trigger:
 - master
 
-pool: 'unity'
+pool:
+    vmImage: "macOS-latest"
 
 steps:
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Install-Module -Name UnitySetup -AllowPrerelease'
+
+- task: UnityGetProjectVersionTask@1
+  inputs:
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version ''$(projectVersion)'' -Components Android) -Verbose'
+
 
 - task: UnityBuildTask@3
   inputs:
