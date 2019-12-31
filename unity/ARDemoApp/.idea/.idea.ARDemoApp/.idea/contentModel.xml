@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\anton\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\anton\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ARDemoApp.1538816425.00" t="ExcludeRecursive" />
-    <e p="C:\Users\anton\Documents\UnityProjects\ARDemoApp\ARDemoApp" t="IncludeRecursive">
+    <e p="C:\Users\Antonio\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Antonio\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ARDemoApp.-827809740.00" t="ExcludeRecursive" />
+    <e p="E:\UnityProjects\MyProjects\PolyAR\unity\ARDemoApp" t="IncludeRecursive">
       <e p="ARDemoApp.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -14,6 +14,7 @@
           <e p="Singleton.cs" t="Include" />
         </e>
         <e p="Editor" t="Include">
+          <e p="AzureDevOps.cs" t="Include" />
           <e p="Build.cs" t="Include" />
           <e p="XCodePostBuild.cs" t="Include" />
         </e>

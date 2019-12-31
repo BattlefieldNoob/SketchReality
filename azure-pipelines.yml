@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool: 'unity'
+
+steps:
+
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'Android'
+    unityProjectPath: 'unity/ARDemoApp'
+    buildScriptType: 'existing'
+    outputFileName: 'drop'
+    scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
+- task: FlutterInstall@0
+  inputs:
+    channel: 'beta'
+    version: 'latest'
+
+- task: FlutterBuild@0
+  inputs:
+    target: 'apk'
+    projectDirectory: '.'
+    debugMode: true
