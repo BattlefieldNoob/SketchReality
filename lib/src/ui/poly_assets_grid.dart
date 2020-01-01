@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_error_state.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_initial_state.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_loaded_state.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_loading_state.dart';
@@ -38,6 +39,22 @@ class PolyAssetsGrid extends StatelessWidget {
               Flexible(
                   child: Text(
                 'Type a word',
+                style: Theme.of(context).textTheme.display1,
+              ))
+            ],
+          ),
+        );
+      } else if (state is PolyQueryErrorState) {
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 20.0),
+              Flexible(
+                  child: Text(
+                state.errorType == ErrorType.NoAssetsFound
+                    ? 'No Assets Found'
+                    : 'An Error Occurred',
                 style: Theme.of(context).textTheme.display1,
               ))
             ],

@@ -363,4 +363,6 @@ Podfile.lock
 gradlew*
 ServiceDefinitions.json
 ios/.symlinks
+.flutter-plugins-dependencies
 unity/ARDemoApp/Temp/
+Project.xml
