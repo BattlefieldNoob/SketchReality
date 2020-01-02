@@ -10,13 +10,17 @@ pool:
     vmImage: 'macOS-latest'
 
 steps:
-- task: CmdLine@2
-  displayName: u3d Install
+- task: Cache@2
   inputs:
-    script: |
-      gem install u3d
-      export LC_ALL=en_US.UTF-8
-      export LANG=en_US.UTF-8
+    key: '.git/modules/unity/PolyAR_Unity/HEAD | PolyAR | Android'
+    path: 'android/UnityExport'
+    cacheHitVar: 'AndroidBuildReady'
+
+- task: Cache@2
+  inputs:
+    key: '.git/modules/unity/PolyAR_Unity/HEAD | PolyAR | IOS'
+    path: 'ios/UnityExport'
+    cacheHitVar: 'IosBuildReady'
 
 #il nome è necessario per poter ottenere la variabile nel task successivo
 - task: UnityGetProjectVersionTask@1
@@ -24,18 +28,28 @@ steps:
   displayName: "Get Project Version"
   inputs:
     unityProjectPath: 'unity/PolyAR_Unity'
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
+
+- task: CmdLine@2
+  displayName: u3d Install
+  inputs:
+    script: |
+      gem install u3d
+      export LC_ALL=en_US.UTF-8
+      export LANG=en_US.UTF-8
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
 
 - task: CmdLine@2
   displayName: Init u3d
   inputs:
     script: 'u3d available -p'
-  condition: ne(variables.isCacheHit, 'true')
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
 
 - task: CmdLine@2
   displayName: "Install Unity with components"
   inputs:
     script: 'sudo u3d install $(unitygetprojectversion.projectversion) -p Unity,Ios,Android,Android-sdk-ndk-tools,Android-ndk,Android-sdk-platform-tools,Android-open-jdk,Android-sdk-build-tools'
-  condition: ne(variables.isCacheHit, 'true')
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
 
 - task: CmdLine@2
   displayName: Move Unity into correct folder
@@ -44,23 +58,27 @@ steps:
      mkdir -p /Applications/Unity/Hub/Editor
      mv /Applications/Unity_$(unitygetprojectversion.projectversion) /Applications/Unity/Hub/Editor/$(unitygetprojectversion.projectversion)
      sudo chown -R runner /Applications/Unity/Hub/Editor/$(unitygetprojectversion.projectversion)
-  condition: ne(variables.isCacheHit, 'true')
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
   
-- task: UnityActivateLicenseTask@1
-  displayName: Activate License
+
+- task: CmdLine@2
+  displayName: Unity Acquire Licence
   inputs:
-    username: 'antonio.ruggiero@uqido.com'
-    password: '726915Casa'
-    serial: 'SC-7ASB-CF6F-WDNK-NCK3-CQSF'
-    unityEditorsPathMode: 'unityHub'
-    unityProjectPath: 'unity/PolyAR_Unity'
+    script: '/Applications/Unity/Hub/Editor/2019.3.0f3/Unity.app/Contents/MacOS/Unity -batchmode -quit -nographics -username antonio.ruggiero@uqido.com -password 726915Casa -serial SC-7ASB-CF6F-WDNK-NCK3-CQSF -logfile /Users/runner/runners/2.163.1/work/1/s/UnityActivationLog.log'
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
 
 
-- task: Cache@2
-  inputs:
-    key: 'unity | PolyAR | Android'
-    path: 'unity/PolyAR_Unity/Library'
-
+# sono costretto a disattivarlo altrimenti la fase di postjob crea un errore
+#- task: UnityActivateLicenseTask@1
+#  displayName: Activate License
+#  inputs:
+#    username: 'antonio.ruggiero@uqido.com'
+#    password: '726915Casa'
+#    serial: 'SC-7ASB-CF6F-WDNK-NCK3-CQSF'
+#    unityEditorsPathMode: 'unityHub'
+#    unityProjectPath: 'unity/PolyAR_Unity'
+#  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
+    
 - task: UnityBuildTask@3
   displayName: Unity build Android
   inputs:
@@ -69,6 +87,7 @@ steps:
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
     
 - task: UnityBuildTask@3
   displayName: Unity build iOS
@@ -78,6 +97,14 @@ steps:
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformIOSBuild'
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
+
+
+- task: CmdLine@2
+  displayName: Unity Return Licence
+  inputs:
+    script: '/Applications/Unity/Hub/Editor/2019.3.0f3/Unity.app/Contents/MacOS/Unity -batchmode -quit -returnlicense'
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
 
 - task: PowerShell@2
   displayName: Copy template build gradle for android
@@ -86,6 +113,8 @@ steps:
     script: |
       # Write your PowerShell commands here.
       Copy-Item "android\build.gradle.template" -Destination "android\UnityExport\build.gradle"
+  condition: or(eq(variables.IosBuildReady,'false'),eq(variables.AndroidBuildReady,'false'))
+
 - task: FlutterInstall@0
   displayName: Install flutter
   inputs:
@@ -129,4 +158,3 @@ steps:
     PathtoPublish: 'build/ios/iphoneos/app_ios.ipa'
     ArtifactName: 'Release'
     publishLocation: 'Container'
-
