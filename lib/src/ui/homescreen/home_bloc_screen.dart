@@ -12,6 +12,7 @@ import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:googleapis/poly/v1.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../blocs/download/events/check_download_event.dart';
 import '../poly_assets_grid.dart';
 
 class PolyBlocHomeScreen extends StatefulWidget {
@@ -77,7 +78,9 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   }
 
   void onAssetClick(Asset asset) {
-    if (!isDownloaded) {
+    if (!_polyDownloadsBloc
+        .isAssetDownloaded(CheckDownloadEvent(asset: asset))) {
+      debugPrint("Downloading!");
       if (!currentConfig.isOnline) {
         debugPrint("Cannot Download on offline build");
         return;
@@ -90,6 +93,7 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       _polyDownloadsBloc.add(StartDownloadEvent(asset: asset));
       //isDownloaded = true;
     } else {
+      debugPrint("Open Unity!");
       //OPEN UNITY CODE!
       if (!currentConfig.unityActive) {
         debugPrint("unity is not active");

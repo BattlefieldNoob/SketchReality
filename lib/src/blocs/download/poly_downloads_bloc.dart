@@ -15,6 +15,8 @@ import 'package:googleapis/poly/v1.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
+import 'events/check_download_event.dart';
+import 'events/download_event.dart';
 import 'states/download_progress_state.dart';
 import 'states/download_ready_state.dart';
 
@@ -179,6 +181,10 @@ class PolyDownloadsBloc extends Bloc<DownloadEvent, DownloadState> {
         idToFile.putIfAbsent(childid, () => f);
       });
     }
+  }
+
+  bool isAssetDownloaded(CheckDownloadEvent event) {
+    return assetNameToProgress[event.asset.name] == 1.0;
   }
 
   void deleteAssetAssetDownload(DeleteDownloadEvent event) {
