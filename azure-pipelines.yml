@@ -23,7 +23,7 @@ steps:
   name: unitygetprojectversion
   displayName: "Get Project Version"
   inputs:
-    unityProjectPath: 'unity/ARDemoApp'
+    unityProjectPath: 'unity/PolyAR_Unity'
 
 - task: CmdLine@2
   displayName: Init u3d
@@ -53,19 +53,19 @@ steps:
     password: '$(password)'
     serial: '$(serialcode)'
     unityEditorsPathMode: 'unityHub'
-    unityProjectPath: 'unity/ARDemoApp'
+    unityProjectPath: 'unity/PolyAR_Unity'
 
 
 - task: Cache@2
   inputs:
     key: 'unity | PolyAR | Android'
-    path: 'unity/ARDemoApp/Library'
+    path: 'unity/PolyAR_Unity/Library'
 
 - task: UnityBuildTask@3
   displayName: Unity build Android
   inputs:
     buildTarget: 'Android'
-    unityProjectPath: 'unity/ARDemoApp'
+    unityProjectPath: 'unity/PolyAR_Unity'
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformAndroidBuild'
@@ -74,7 +74,7 @@ steps:
   displayName: Unity build iOS
   inputs:
     buildTarget: 'Ios'
-    unityProjectPath: 'unity/ARDemoApp'
+    unityProjectPath: 'unity/PolyAR_Unity'
     buildScriptType: 'existing'
     outputFileName: 'drop'
     scriptExecuteMethod: 'AzureDevOps.PerformIOSBuild'
