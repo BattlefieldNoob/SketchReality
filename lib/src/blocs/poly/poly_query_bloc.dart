@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_unity_widget_example/src/blocs/poly/states/poly_query_error_state.dart';
 import 'package:flutter_unity_widget_example/src/repositories/base_repository.dart';
 import 'package:googleapis/poly/v1.dart';
 
@@ -27,9 +28,14 @@ class PolyBloc extends Bloc<SearchEvent, PolyQueryState> {
       try {
         ListAssetsResponse result =
             await repository.getDataByQuery(event.query);
-        yield PolyQueryLoadedState(assetList: result);
+        if (result.assets == null)
+          yield PolyQueryErrorState(errorType: ErrorType.NoAssetsFound);
+        else
+          yield PolyQueryLoadedState(assetList: result);
         print("data is ready!");
-      } catch (e) {}
+      } catch (e) {
+        yield PolyQueryErrorState(errorType: ErrorType.Exception);
+      }
     } else if (event is UpdateQuerySearchEvent) {
       print("loading!");
       yield PolyQueryLoadingState();
