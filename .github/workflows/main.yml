@@ -12,15 +12,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      
     - name: Flutter action
-      uses: subosito/flutter-action@v1.1.1
+      uses: subosito/flutter-action@v1.3.2
       with:
         # The Flutter build release channel
+        flutter-version: 1.19.0-4.3.pre
         channel: beta # optional, default is stable
+      
     - name: flutter enable web
       run: flutter config --enable-web
+    
     - name: flutter build
       run: flutter build web
+    
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
