@@ -15,10 +15,7 @@ import 'states/poly_query_state.dart';
 class PolyBloc extends Bloc<SearchEvent, PolyQueryState> {
   BaseRepository repository;
 
-  PolyBloc({@required this.repository});
-
-  @override
-  PolyQueryState get initialState => PolyQueryInitialState();
+  PolyBloc({@required this.repository}) : super(PolyQueryInitialState());
 
   @override
   Stream<PolyQueryState> mapEventToState(SearchEvent event) async* {

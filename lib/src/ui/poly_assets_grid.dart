@@ -21,7 +21,7 @@ class PolyAssetsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     var orientation = MediaQuery.of(context).orientation;
 
-    return BlocBuilder<PolyBloc, PolyQueryState>(condition: (prevState, state) {
+    return BlocBuilder<PolyBloc, PolyQueryState>(buildWhen: (prevState, state) {
       if (state is PolyQueryLoadingState) {
         return !(prevState is PolyQueryLoadedState);
       }

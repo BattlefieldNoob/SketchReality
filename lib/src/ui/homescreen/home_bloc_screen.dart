@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_unity_widget_example/src/blocs/download/events/delete_download_event.dart';
-import 'package:flutter_unity_widget_example/src/blocs/download/events/start_download_event.dart';
-import 'package:flutter_unity_widget_example/src/blocs/download/poly_downloads_bloc.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/empty_query_search_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/update_query_search_event.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/events/valid_query_search_event.dart';
@@ -12,7 +9,6 @@ import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:googleapis/poly/v1.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../blocs/download/events/check_download_event.dart';
 import '../poly_assets_grid.dart';
 
 class PolyBlocHomeScreen extends StatefulWidget {
@@ -26,8 +22,6 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   bool isDownloaded = false;
 
   PolyBloc _polyBloc;
-
-  PolyDownloadsBloc _polyDownloadsBloc;
 
   static Subject<String> querySubject = PublishSubject();
 
@@ -43,8 +37,6 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
 
     _polyBloc = BlocProvider.of<PolyBloc>(context);
     _polyBloc.add(EmptyQuerySearchEvent());
-
-    _polyDownloadsBloc = BlocProvider.of<PolyDownloadsBloc>(context);
 
     debouncedQueryStream.listen((query) {
       if (query.isEmpty || query.length <= 3) {
@@ -74,11 +66,10 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   }
 
   void onDeleteAssetClick(Asset asset) {
-    _polyDownloadsBloc.add(DeleteDownloadEvent(asset));
   }
 
   void onAssetClick(Asset asset) {
-    if (!_polyDownloadsBloc
+    /*if (!_polyDownloadsBloc
         .isAssetDownloaded(CheckDownloadEvent(asset: asset))) {
       debugPrint("Downloading!");
       if (!currentConfig.isOnline) {
@@ -92,7 +83,7 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       //downloadBloc.startDownload(asset.name, format, fullSavePath);
       _polyDownloadsBloc.add(StartDownloadEvent(asset: asset));
       //isDownloaded = true;
-    } else {
+    } else {*/
       debugPrint("Open Unity!");
       //OPEN UNITY CODE!
       if (!currentConfig.unityActive) {
@@ -103,7 +94,7 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       debugPrint('ontap:${asset.name}');
       //debugPrint("passing argument:${result.urls}");
       Navigator.pushNamed(context, "/unity", arguments: asset);
-    }
+   // }
   }
 
   @override

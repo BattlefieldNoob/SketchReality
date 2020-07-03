@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_unity_widget_example/src/blocs/download/poly_downloads_bloc.dart';
 import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
 import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:flutter_unity_widget_example/src/repositories/mock_assets_repository.dart';
@@ -17,11 +16,9 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => BlocProvider(
-          create: (context) => PolyDownloadsBloc(),
-          child: BlocProvider(
               create: (context) =>
                   PolyBloc(repository: MockAssetsRepository.getRepo()),
-              child: PolyBlocHomeScreen())),
+              child: PolyBlocHomeScreen()),
       '/unity': (context) => WithARkitScreen()
     },
     theme: ThemeData(

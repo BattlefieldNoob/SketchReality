@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 import 'package:googleapis/poly/v1.dart';
 
 
@@ -19,7 +18,6 @@ class CustomPopupMenu {
 
 class _WithARkitScreenState extends State<WithARkitScreen> {
 
-  UnityWidgetController _unityWidgetController;
 
   Asset asset;
 
@@ -40,12 +38,7 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
       appBar: AppBar(
         title: Text('ARKIT Demo'),
       ),
-      body:UnityWidget(
-              onUnityViewCreated: onUnityCreated,
-              isARScene: true,
-              onUnityMessage: onUnityMessage,
-            ),
-        );
+      body:Text("MOMOMOM"));
   }
 
 
@@ -55,8 +48,6 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
 
   // Callback that connects the created controller to the unity controller
   void onUnityCreated(controller) {
-    this._unityWidgetController = controller;
-
     print("UNITY CREATED!");
 
     /*var binfile=File();
@@ -88,10 +79,10 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
     asset.name="BoxTextured.gltf";
     asset.formats = formats;*/
 
-    var message=MessageHandler();
+   /* var message=MessageHandler();
     message.name="PolyAsset";
     message.data=jsonEncode(this.asset);
 
-    _unityWidgetController.postMessageToManager(message);
+    _unityWidgetController.postMessageToManager(message);*/
   }
 }
