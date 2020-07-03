@@ -24,7 +24,7 @@ jobs:
       run: flutter config --enable-web
     
     - name: flutter build
-      run: flutter build web
+      run: flutter build web --release
     
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
