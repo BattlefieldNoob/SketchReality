@@ -24,7 +24,7 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
   <!-- Use it like any other HTML element -->
-  <model-viewer style="height:100%;width:100%;input:focus{outline: none;};" src="{{src}}" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>"
+  <model-viewer style="height:100%;width:100%;input:focus{outline: none;};" src="{{src}}" alt="A 3D model of an astronaut" auto-rotate ar camera-controls></model-viewer>"
   ''';
 
   Asset asset;
