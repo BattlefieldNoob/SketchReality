@@ -21,7 +21,7 @@ class ScreenBloc {
     query = PublishSubject<String>();
   }
 
-  Observable<List<Asset>> get assetList => query.stream
+  Stream<List<Asset>> get assetList => query.stream
       .where((test) => test.isNotEmpty)
       .debounceTime(Duration(milliseconds: 600))
       .distinct()

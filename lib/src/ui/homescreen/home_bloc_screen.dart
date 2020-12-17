@@ -25,10 +25,10 @@ class _BlocHomeScreenState extends State<BlocHomeScreen> {
 
   static Subject<String> querySubject = PublishSubject();
 
-  Observable<String> queryStream =
+  Stream<String> queryStream =
       querySubject.debounceTime(Duration(milliseconds: 150)).distinct();
 
-  Observable<String> debouncedQueryStream =
+  Stream<String> debouncedQueryStream =
       querySubject.debounceTime(Duration(milliseconds: 800)).distinct();
 
   @override
