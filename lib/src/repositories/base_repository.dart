@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_unity_widget_example/src/repositories/mock_assets_repository.dart';
-import 'package:flutter_unity_widget_example/src/repositories/poly_repository.dart';
+import 'package:flutter_unity_widget_example/src/repositories/sketchfab_repository.dart';
 
 class RepositoryCompanion {
   const RepositoryCompanion();
@@ -11,8 +11,8 @@ class RepositoryCompanion {
 
 abstract class BaseRepository<T> {
   static const Map<Type, RepositoryCompanion> _companion = {
-    PolyRepository: const PolyCompanion(),
     MockAssetsRepository: const MockAssetsCompanion(),
+    SketchfabRepository: const SketchfabCompanion()
   };
 
   static RepositoryCompanion companion<X extends BaseRepository>() =>

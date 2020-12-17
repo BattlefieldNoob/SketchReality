@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 
 
 class WithoutARkitScreen extends StatefulWidget {
@@ -11,7 +10,6 @@ class _WithoutARkitScreenState extends State<WithoutARkitScreen> {
 
   static final GlobalKey<ScaffoldState> _scaffoldKey =
   GlobalKey<ScaffoldState>();
-  UnityWidgetController _unityWidgetController;
   double _sliderValue = 0.0;
 
   @override
@@ -33,11 +31,7 @@ class _WithoutARkitScreenState extends State<WithoutARkitScreen> {
         ),
         child: Stack(
           children: <Widget>[
-            UnityWidget(
-              onUnityViewCreated: onUnityCreated,
-              isARScene: false,
-              onUnityMessage: onUnityMessage,
-            ),
+            Text("MIIIIIIII"),
             Positioned(
               bottom: 20,
               left: 20,
@@ -72,11 +66,11 @@ class _WithoutARkitScreenState extends State<WithoutARkitScreen> {
   }
 
   void setRotationSpeed(String speed) {
-    _unityWidgetController.postMessage(
+   /* _unityWidgetController.postMessage(
       'Cube',
       'SetRotationSpeed',
       speed,
-    );
+    );*/
   }
 
   void onUnityMessage(controller, message) {
@@ -85,6 +79,6 @@ class _WithoutARkitScreenState extends State<WithoutARkitScreen> {
 
   // Callback that connects the created controller to the unity controller
   void onUnityCreated(controller) {
-    this._unityWidgetController = controller;
+    //this._unityWidgetController = controller;
   }
 }

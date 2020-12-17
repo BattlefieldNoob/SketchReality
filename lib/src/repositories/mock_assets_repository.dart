@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sketchfab/models/list_assets_response.dart';
 import 'package:flutter_unity_widget_example/src/repositories/base_repository.dart';
-import 'package:googleapis/poly/v1.dart';
 
 class MockAssetsCompanion implements RepositoryCompanion {
   const MockAssetsCompanion();

@@ -1,9 +1,6 @@
-import 'dart:convert';
-
+import 'package:easy_web_view/easy_web_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_unity_widget/flutter_unity_widget.dart';
-import 'package:googleapis/poly/v1.dart';
-
+import 'package:flutter_sketchfab/models/asset.dart';
 
 class WithARkitScreen extends StatefulWidget {
   @override
@@ -18,9 +15,6 @@ class CustomPopupMenu {
 }
 
 class _WithARkitScreenState extends State<WithARkitScreen> {
-
-  UnityWidgetController _unityWidgetController;
-
   Asset asset;
 
   @override
@@ -28,70 +22,32 @@ class _WithARkitScreenState extends State<WithARkitScreen> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
+    asset = ModalRoute.of(context).settings.arguments as Asset;
 
-    asset=ModalRoute.of(context).settings.arguments as Asset;
+    var url = asset.embedUrl +
+        "?ui_infos=0&ui_watermark=0&ui_stop=1&ui_help=0&ui_vr=0&ui_settings=0&ui_inspector=0&ui_animations=0&ui_annotations=0&ui_hint=2&ui_theme=dark";
 
     debugPrint("argument:$asset");
+    debugPrint("argument:${asset.embedUrl}");
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ARKIT Demo'),
-      ),
-      body:UnityWidget(
-              onUnityViewCreated: onUnityCreated,
-              isARScene: true,
-              onUnityMessage: onUnityMessage,
-            ),
-        );
-  }
-
-
-  void onUnityMessage(controller, message) {
-    print('Received message from unity: ${message.toString()}');
-  }
-
-  // Callback that connects the created controller to the unity controller
-  void onUnityCreated(controller) {
-    this._unityWidgetController = controller;
-
-    print("UNITY CREATED!");
-
-    /*var binfile=File();
-    binfile.url="BoxTextured0.bin";
-    binfile.relativePath="BoxTextured0.bin";
-
-    var texfile=File();
-    texfile.url="CesiumLogoFlat.png";
-    texfile.relativePath="CesiumLogoFlat.png";
-
-    var format=Format();
-    format.resources=List<File>();
-    format.resources.add(binfile);
-    format.resources.add(texfile);
-    format.formatType="GLTF_2";
-    format.formatComplexity=FormatComplexity();
-
-    var root=File();
-    root.url="BoxTextured.gltf";
-    root.relativePath="BoxTextured.gltf";
-
-    format.root=root;
-
-    
-    var formats=List<Format>();
-    formats.add(format);
-
-    var asset=Asset();
-    asset.name="BoxTextured.gltf";
-    asset.formats = formats;*/
-
-    var message=MessageHandler();
-    message.name="PolyAsset";
-    message.data=jsonEncode(this.asset);
-
-    _unityWidgetController.postMessageToManager(message);
+        appBar: AppBar(
+          title: Text(asset.name),
+        ),
+        body: Container(
+            constraints: BoxConstraints.expand(),
+            child: EasyWebView(
+              src: url,
+              // Use Html syntax
+              isMarkdown: false,
+              // Use markdown syntax
+              convertToWidgets: false,
+              // Try to convert to flutter widgets
+              onLoaded: () {
+                print("Loaded!");
+              },
+            )));
   }
 }
