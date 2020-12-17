@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_sketchfab/models/asset.dart';
 import 'package:flutter_unity_widget_example/src/ui/Animation/fade_slide_transition.dart';
-import 'package:googleapis/poly/v1.dart';
-import 'package:rxdart/rxdart.dart';
 
 typedef GestureAssetTapCallback = void Function(Asset);
 
@@ -20,7 +18,6 @@ class AssetGridItem extends StatefulWidget {
 }
 
 class AssetGridState extends State<AssetGridItem> {
-
   @override
   void initState() {
     super.initState();
@@ -55,16 +52,12 @@ class AssetGridState extends State<AssetGridItem> {
                       onTap: () => widget.onTap(widget._asset),
                       child:
                           Stack(alignment: Alignment.center, children: <Widget>[
-                        widget._asset.thumbnail.url != null
+                        widget._asset.thumbnails.images.first.url != null
                             ? Image.network(
-                                widget._asset.thumbnail.url,
+                                widget._asset.thumbnails.images.first.url,
                                 loadingBuilder: loadingBuilder,
                               )
                             : Image.asset("assets/placeholder.png"),
-                        Flex(direction: Axis.vertical, children: <Widget>[
-                          Expanded(
-                              child:Text("FFEFEEFEFEFFEEF"))
-                        ]),
                       ]))),
               SizedBox(
                   height: 37.0,
@@ -72,18 +65,16 @@ class AssetGridState extends State<AssetGridItem> {
                     Container(
                         padding: EdgeInsets.all(4),
                         child: Center(
-                          child: Text(widget._asset.displayName,
+                          child: Text(widget._asset.name,
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context)
                                   .textTheme
                                   .display1
                                   .apply(fontSizeFactor: 0.8)),
-                        )),
-                    Text("BBHBHHBBBBHBHBH")
+                        ))
                   ]))
             ],
           )),
     );
   }
-
 }

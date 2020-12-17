@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
-import 'package:flutter_unity_widget_example/src/repositories/poly_repository.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/sketchfab_query_bloc.dart';
+import 'package:flutter_unity_widget_example/src/repositories/sketchfab_repository.dart';
 import 'package:flutter_unity_widget_example/src/ui/homescreen/home_bloc_screen.dart';
 import 'package:flutter_unity_widget_example/src/ui/screens/with_arkit_screen.dart';
 
 void main() => runApp(MaterialApp(
-      title: "cavallo",
+      title: "SketchReality",
       initialRoute: '/',
       routes: {
         '/': (context) => BlocProvider(
-                create: (context) =>
-                    PolyBloc(repository: PolyRepository.getRepo()),
-                child: PolyBlocHomeScreen()),
+            create: (context) =>
+                SketchfabBloc(repository: SketchfabRepository.getRepo()),
+            child: BlocHomeScreen()),
         '/unity': (context) => WithARkitScreen()
       },
       theme: ThemeData(

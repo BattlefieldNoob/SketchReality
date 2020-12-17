@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/events/empty_query_search_event.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/events/update_query_search_event.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/events/valid_query_search_event.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
+import 'package:flutter_sketchfab/models/asset.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/events/sketchfab_empty_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/events/sketchfab_update_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/events/sketchfab_valid_query_search_event.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/sketchfab_query_bloc.dart';
 import 'package:flutter_unity_widget_example/src/models/run_config.dart';
-import 'package:googleapis/poly/v1.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../poly_assets_grid.dart';
+import '../assets_grid.dart';
 
-class PolyBlocHomeScreen extends StatefulWidget {
+class BlocHomeScreen extends StatefulWidget {
   @override
-  _PolyBlocHomeScreenState createState() => _PolyBlocHomeScreenState();
+  _BlocHomeScreenState createState() => _BlocHomeScreenState();
 }
 
-class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
+class _BlocHomeScreenState extends State<BlocHomeScreen> {
   bool searchInProgress = false;
 
   bool isDownloaded = false;
 
-  PolyBloc _polyBloc;
+  SketchfabBloc _Bloc;
 
   static Subject<String> querySubject = PublishSubject();
 
@@ -35,26 +35,26 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
   void initState() {
     super.initState();
 
-    _polyBloc = BlocProvider.of<PolyBloc>(context);
-    _polyBloc.add(EmptyQuerySearchEvent());
+    _Bloc = BlocProvider.of<SketchfabBloc>(context);
+    _Bloc.add(SketchfabEmptyQuerySearchEvent());
 
     debouncedQueryStream.listen((query) {
       if (query.isEmpty || query.length <= 3) {
         print("empty query");
-        _polyBloc.add(EmptyQuerySearchEvent());
+        _Bloc.add(SketchfabEmptyQuerySearchEvent());
       } else {
         print("valid query:" + query);
-        _polyBloc.add(ValidQuerySearchEvent(query: query));
+        _Bloc.add(SketchfabValidQuerySearchEvent(query: query));
       }
     });
 
     queryStream.listen((query) async {
       if (query.isEmpty || query.length <= 3) {
         print("empty query");
-        _polyBloc.add(EmptyQuerySearchEvent());
+        _Bloc.add(SketchfabEmptyQuerySearchEvent());
       } else {
         print("updated query:" + query);
-        _polyBloc.add(UpdateQuerySearchEvent());
+        _Bloc.add(SketchfabUpdateQuerySearchEvent());
       }
     });
   }
@@ -65,8 +65,7 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
     super.dispose();
   }
 
-  void onDeleteAssetClick(Asset asset) {
-  }
+  void onDeleteAssetClick(Asset asset) {}
 
   void onAssetClick(Asset asset) {
     /*if (!_polyDownloadsBloc
@@ -84,24 +83,24 @@ class _PolyBlocHomeScreenState extends State<PolyBlocHomeScreen> {
       _polyDownloadsBloc.add(StartDownloadEvent(asset: asset));
       //isDownloaded = true;
     } else {*/
-      debugPrint("Open Unity!");
-      //OPEN UNITY CODE!
-      if (!currentConfig.unityActive) {
-        debugPrint("unity is not active");
-        return;
-      }
+    debugPrint("Open Unity!");
+    //OPEN UNITY CODE!
+    if (!currentConfig.unityActive) {
+      debugPrint("unity is not active");
+      return;
+    }
 
-      debugPrint('ontap:${asset.name}');
-      //debugPrint("passing argument:${result.urls}");
-      Navigator.pushNamed(context, "/unity", arguments: asset);
-   // }
+    debugPrint('ontap:${asset.name}');
+    //debugPrint("passing argument:${result.urls}");
+    Navigator.pushNamed(context, "/unity", arguments: asset);
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Poly AR'),
+        title: Text('SketchReality'),
         centerTitle: true,
         elevation: 0.0,
       ),

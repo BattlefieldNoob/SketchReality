@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_unity_widget_example/src/blocs/poly/poly_query_bloc.dart';
+import 'package:flutter_unity_widget_example/src/blocs/sketchfab/sketchfab_query_bloc.dart';
 import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:flutter_unity_widget_example/src/repositories/mock_assets_repository.dart';
 import 'package:flutter_unity_widget_example/src/ui/homescreen/home_bloc_screen.dart';
@@ -16,9 +16,9 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => BlocProvider(
-              create: (context) =>
-                  PolyBloc(repository: MockAssetsRepository.getRepo()),
-              child: PolyBlocHomeScreen()),
+          create: (context) =>
+              SketchfabBloc(repository: MockAssetsRepository.getRepo()),
+          child: BlocHomeScreen()),
       '/unity': (context) => WithARkitScreen()
     },
     theme: ThemeData(

@@ -1,16 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_sketchfab/models/asset.dart';
+import 'package:flutter_sketchfab/models/list_assets_response.dart';
 import 'package:flutter_unity_widget_example/src/models/run_config.dart';
 import 'package:flutter_unity_widget_example/src/repositories/base_repository.dart';
 import 'package:flutter_unity_widget_example/src/repositories/mock_assets_repository.dart';
-import 'package:flutter_unity_widget_example/src/repositories/poly_repository.dart';
-import 'package:googleapis/poly/v1.dart';
+import 'package:flutter_unity_widget_example/src/repositories/sketchfab_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ScreenBloc {
   static final BaseRepository _repository = currentConfig.isOnline
-      ? PolyRepository.getRepo()
+      ? SketchfabRepository.getRepo()
       : MockAssetsRepository.getRepo();
 
   PublishSubject<String> query;
@@ -37,7 +38,7 @@ class ScreenBloc {
     ListAssetsResponse state = await _repository.getDataByQuery(query);
 
     if (state != null) {
-      sink.add(state.assets);
+      sink.add(state.results);
     } else {
       sink.addError("State is null!");
     }
